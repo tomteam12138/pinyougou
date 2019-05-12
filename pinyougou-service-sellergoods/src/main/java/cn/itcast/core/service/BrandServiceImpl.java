@@ -34,42 +34,10 @@ public class BrandServiceImpl implements BrandService {
     @Autowired
     private Destination topicPageAndSolrDestination;
 
-    //查询全部品牌 带分页
-    @Override
-    public PageResult findPage(Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
-        Page brand = (Page) brandDao.selectByExample(null);
-        return new PageResult(brand.getTotal(),brand);
-    }
-
-    //查询全部品牌 不带分页
-    @Override
-    public List<Brand> findAll() {
-        return brandDao.selectByExample(null);
-    }
     //添加新品牌
     @Override
-    public void addBrand(Brand brand) {
-        brandDao.insertSelective(brand);
-    }
-    //按主键查询brand
-    @Override
-    public Brand findById(Long id) {
-        return brandDao.selectByPrimaryKey(id);
-    }
-    //修改brand
-    @Override
-    public void updateBrand(Brand brand) {
-        brandDao.updateByPrimaryKeySelective(brand);
-    }
-    //批量删除品牌
-    @Override
-    public void delete(Long[] ids) {
-        if (ids!=null && ids.length!=0){
-            for (Long id : ids) {
-                brandDao.deleteByPrimaryKey(id);
-            }
-        }
+    public void save(Brand brand) {
+        brandDao.insert(brand);
     }
 
     @Override

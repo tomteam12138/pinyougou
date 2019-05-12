@@ -15,9 +15,9 @@ import java.util.Set;
  */
 public class UserDetailServiceImpl implements UserDetailsService {
 
-    private UserService userService;
+    private UserService2 userService;
 
-    public void setUserService(UserService userService) {
+    public void setUserService(UserService2 userService) {
         this.userService = userService;
     }
 

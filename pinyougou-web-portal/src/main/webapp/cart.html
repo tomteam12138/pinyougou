@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="css/pages-cart.css" />
+
     <script type="text/javascript" src="plugins/angularjs/angular.min.js"> </script>
 	<script type="text/javascript" src="js/base.js"> </script>
 	<script type="text/javascript" src="js/service/cartService.js"> </script>
@@ -95,8 +96,9 @@
 								<li class="yui3-u-1-8"><span class="sum">{{item.totalFee.toFixed(2)}}</span></li>
 								<li class="yui3-u-1-8">
 									<a href="#none">删除</a><br />
-									<a href="#none">移到我的关注</a>
+									<a ng-click="addToCollect(item.itemId)">移到我的关注</a>
 								</li>
+
 							</ul>
 						</div>
 						
@@ -416,6 +418,9 @@
 <script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
 <script type="text/javascript" src="js/widget/nav.js"></script>
+	<script type="text/javascript" src="js/model/cartModel.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery.jqzoom/jquery.jqzoom.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery.jqzoom/zoom.js"></script>
 </body>
 
 </html>
