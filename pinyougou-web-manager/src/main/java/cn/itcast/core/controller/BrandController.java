@@ -75,7 +75,6 @@ public class BrandController {
     public PageResult search(Integer pageNum,Integer pageSize,@RequestBody(required = false)Brand brand) {
         return  brandService.search(pageNum, pageSize, brand);
     }
-
     @RequestMapping("/selectOptionList")
     public List<Map> selectOptionList(){
         return brandService.selectOptionList();
