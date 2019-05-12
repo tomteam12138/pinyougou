@@ -255,4 +255,44 @@ app.controller('goodsController' ,function($scope,$controller,$location,typeTemp
 			}
 		});
 	}
+
+
+    $scope.findApply1=function(){
+         itemCatService.findApply1($scope.entity.name1).success(
+
+             function(response){
+                 if(response.flag){
+                 	alert("222");
+                     itemCatService.addApply1($scope.entity.name1);
+                     //重新查询
+					 if($scope.entity.name2 != "null"){
+                         $scope.findApply2($scope.entity.name1,$scope.entity.name2,$scope.entity.name3);
+
+					 }
+                     location.href="item_cat_apply.html";
+
+                 }else{
+                 	alert("111");
+                     $scope.findApply2($scope.entity.name1,$scope.entity.name2,$scope.entity.name3);
+                 }
+             }
+        );
+
+    }
+
+    $scope.findApply2=function(){
+                itemCatService.findApply2($scope.entity.name1,$scope.entity.name2,$scope.entity.name3).success(
+                	function(response){
+                        if(response.flag){
+
+                            alert(response.message);
+
+                        }else{
+                            alert(response.message);
+                        }
+            }
+        );
+
+    }
+
 });	

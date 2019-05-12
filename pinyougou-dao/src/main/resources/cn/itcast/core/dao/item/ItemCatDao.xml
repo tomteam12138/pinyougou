@@ -69,7 +69,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, parent_id, name, type_id
+      id, parent_id, name,is_detele,item_status,type_id
     </if>
     <if test="fields != null" >
       ${fields}
@@ -105,12 +105,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.itcast.core.pojo.item.ItemCat" >
-    insert into tb_item_cat (id, parent_id, name,
+  <insert id="insert" parameterType="cn.itcast.core.pojo.item.ItemCatNew" >
+    insert into tb_item_cat_new (id, parent_id, name,is_detele,item_status,
       type_id)
-    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},#{isDetele,jdbcType=VARCHAR},#{itemStatus,jdbcType=VARCHAR},
       #{typeId,jdbcType=BIGINT})
   </insert>
+
   <insert id="insertSelective" parameterType="cn.itcast.core.pojo.item.ItemCatNew" >
     insert into tb_item_cat_new
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -122,6 +123,12 @@
       </if>
       <if test="name != null" >
         name,
+      </if>
+      <if test="isDelete != null" >
+        is_detele,
+      </if>
+      <if test="itemStatus != null" >
+        item_status,
       </if>
       <if test="typeId != null" >
         type_id,
@@ -137,11 +144,14 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
+      <if test="isDelete != null">
+        #{is_detele,jdbcType=VARCHAR},
+      </if>
+      <if test="itemStatus != null">
+        #{item_status,jdbcType=VARCHAR},
       </if>
       <if test="typeId != null" >
-        #{typeId,jdbcType=BIGINT},
+        #{type_id,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -181,20 +191,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.core.pojo.item.ItemCatNew" >
-    update tb_item_cat_new
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.core.pojo.item.ItemCat" >
+    update tb_item_cat
     <set >
       <if test="parentId != null" >
         parent_id = #{parentId,jdbcType=BIGINT},
       </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="itemStatus != null" >
-        item_status = #{itemStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=VARCHAR},
       </if>
       <if test="typeId != null" >
         type_id = #{typeId,jdbcType=BIGINT},
@@ -213,17 +217,4 @@
   <select id="findItemList" resultType="map">
     select id,parent_id,name from tb_item_cat
   </select>
-  <!--根据父ID查询-->
-  <select id="findByParentId" resultMap="BaseResultMap" parameterType="Long">
-    select * from tb_item_cat_new where parent_id = #{parentId}
-  </select>
-  <!--查询一个对象-->
-  <select id="findOne" resultMap="BaseResultMap" parameterType="Long">
-    SELECT * from tb_item_cat_new where id = #{id}
-  </select>
-  <!--查询所有对象-->
-  <select id="findAll" resultMap="BaseResultMap">
-    select * from tb_item_cat_new where parent_id = '0'
-  </select>
-
 </mapper>

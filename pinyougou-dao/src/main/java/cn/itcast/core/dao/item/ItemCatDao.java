@@ -15,7 +15,7 @@ public interface ItemCatDao {
 
     int deleteByPrimaryKey(Long id);
 
-    int insert(ItemCat record);
+    int insert(ItemCatNew record);
 
     int insertSelective(ItemCatNew record);
 
@@ -38,4 +38,9 @@ public interface ItemCatDao {
     ItemCatNew findOne(Long id);
 
     List<ItemCatNew> findAll();
+
+    ItemCatNew findByName(String name);
+
+
+    void addItem(ItemCatNew byName);
 }

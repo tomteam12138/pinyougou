@@ -33,5 +33,27 @@ app.service('userService',function($http){
 	this.sendCode=function(phone){
 		return $http.get('../user/sendCode.do?phone='+phone);
 	}
+	//查询地址
+    this.selectAddress=function(){
+        return $http.get('../user/selectAddress.do');
+    }
+
+    //增加地址
+    this.addAddress=function(entity){
+        return  $http.post('../user/addAddress.do',entity );
+    }
+    //修改 地址
+    this.updateAddress=function(entity){
+        return  $http.post('../user/updateAddress.do',entity );
+    }
+    //删除地址
+    this.deleteAddress=function(id){
+        return $http.get('../user/deleteAddress.do?id='+id);
+    }
+    //查询一个地址
+    this.findOneAddress=function(id){
+        return $http.get('../user/findOneAddress.do?id='+id);
+    }
+
 	
 });

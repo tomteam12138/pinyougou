@@ -2,14 +2,11 @@ package cn.itcast.core.service;
 
 import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.pojo.item.Item;
+import cn.itcast.core.pojo.item.ItemCatNew;
 import entity.PageResult;
 import vo.GoodsVo;
 
 import java.util.Map;
-
-/**
-import vo.GoodsVo;
-import vo.SeckillGoodsVo;
 
 /**
  * Created by wang on 2019/4/13.

@@ -32,5 +32,54 @@ app.controller('userController' ,function($scope,$controller   ,userService){
 			}
 		);		
 	}
+	$scope.selectAddress=function () {
+		userService.selectAddress().success(
+            function(response){
+                $scope.list=response;
+            }
+        );
+    }
+    //删除 地址
+    $scope.deleteAddress=function(id){
+        //获取选中的复选框
+        userService.deleteAddress(id).success(
+            function(response){
+                if(response.flag){
+                    alert(response.message);
+                    $scope.selectAddress();//刷新列表
+                }else {
+                    alert(response.message);
+				}
+            }
+        );
+    }
+
+    $scope.saveAddress=function(){
+        var serviceObject;//服务层对象
+        if($scope.entity.id!=null){//如果有ID
+            serviceObject=userService.updateAddress( $scope.entity ); //修改
+        }else{
+            serviceObject=userService.addAddress( $scope.entity  );//增加
+        }
+        serviceObject.success(
+            function(response){
+                if(response.flag){
+                    //重新查询
+                    $scope.selectAddress();//重新加载
+                }else{
+                    alert(response.message);
+                }
+            }
+        );
+    }
+
+    // 查询一个:
+    $scope.findOneAddress = function(id){
+        userService.findOneAddress(id).success(function(response){
+
+            $scope.entity = response;
+        });
+    }
+
 	
 });	

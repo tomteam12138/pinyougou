@@ -178,6 +178,9 @@
       <if test="record.customAttributeItems != null" >
         custom_attribute_items = #{record.customAttributeItems,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        status = #{record.customAttributeItems,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -209,6 +212,9 @@
       <if test="customAttributeItems != null" >
         custom_attribute_items = #{customAttributeItems,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -220,4 +226,5 @@
       custom_attribute_items = #{customAttributeItems,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
 </mapper>
