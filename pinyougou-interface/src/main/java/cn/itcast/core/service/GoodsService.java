@@ -2,7 +2,11 @@ package cn.itcast.core.service;
 
 import cn.itcast.core.pojo.good.Goods;
 import entity.PageResult;
-import vo.GoodsVo; /**
+import vo.GoodsVo;
+
+import java.util.Map;
+
+/**
  * Created by wang on 2019/4/13.
  */
 public interface GoodsService {
