@@ -16,4 +16,16 @@ public interface BrandService {
     List<Map> selectOptionList();
     void updateStatus(Long[] ids, String status);
     void saveBeans(ArrayList<Brand> brands);
+
+    List<Brand> findAll();
+
+    PageResult findPage(Integer pageNum, Integer pageSize);
+
+    void addBrand(Brand brand);
+
+    Brand findById(Long id);
+
+    void updateBrand(Brand brand);
+
+    void delete(Long[] ids);
 }
