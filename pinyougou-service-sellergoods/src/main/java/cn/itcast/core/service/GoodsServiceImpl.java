@@ -243,8 +243,6 @@ public class GoodsServiceImpl implements GoodsService {
         item.setSellerId(vo.getGoods().getSellerId());
         ItemCat itemCat = itemCatDao.selectByPrimaryKey(vo.getGoods().getCategory3Id());
         item.setCategory(itemCat.getName());
-        Brand brand = brandDao.selectByPrimaryKey(vo.getGoods().getBrandId());
-        item.setBrand(brand.getName());
-        item.setSeller(sellerDao.selectByPrimaryKey(vo.getGoods().getSellerId()).getNickName());
+
     }
 }

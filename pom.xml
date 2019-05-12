@@ -22,6 +22,9 @@
         <module>pinyougou-web-portal</module>
         <module>pinyougou-web-shop</module>
         <module>pinyougou-web-user</module>
+        <module>pinyougou-service-scekill</module>
+        <module>pinyougou-web-seckill</module>
+        <module>itcast_payservice</module>
     </modules>
 
     <properties>

@@ -60,4 +60,10 @@ public class UserServiceImpl implements UserService {
             throw  new RuntimeException("验证码已失效,请重新请求");
         }
     }
+
+    @Override
+    public User findUserAndRole(String username) {
+        return userDao.findUserAndRole(username);
+    }
+
 }
