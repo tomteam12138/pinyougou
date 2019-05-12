@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import vo.SpecificationVo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -104,5 +105,14 @@ public class SpecificationServiceImpl implements SpecificationService{
     @Override
     public List<Map> selectOptionList() {
         return specificationDao.selectOptionList();
+    }
+
+    @Override
+    public void saveBeans(ArrayList<Specification> specifications) {
+        if(specifications!=null && specifications.size()>0){
+            for (Specification specification : specifications) {
+                specificationDao.insertSelective(specification);
+            }
+        }
     }
 }
