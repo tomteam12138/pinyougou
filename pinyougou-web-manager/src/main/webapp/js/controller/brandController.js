@@ -1,5 +1,5 @@
 // 定义控制器:
-app.controller("brandController",function($scope,$controller,$http,brandService){
+app.controller("brandController",function($scope,$controller,$http,brandService,excelService){
 	// AngularJS中的继承:伪继承
 	$controller('baseController',{$scope:$scope});
 	
@@ -79,5 +79,44 @@ app.controller("brandController",function($scope,$controller,$http,brandService)
 			$scope.list = response.rows;
 		});
 	}
+    // 显示状态
+    $scope.status = ["未审核","审核通过","审核未通过","关闭"];
+
+    // 审核的方法:
+    $scope.updateStatus = function(status){
+        brandService.updateStatus($scope.selectIds,status).success(function(response){
+            if(response.flag){
+                $scope.reloadList();//刷新列表
+                $scope.selectIds = [];
+            }else{
+                alert(response.message);
+            }
+        });
+    }
+
+    $scope.brandTemplateDownload = function () {
+        location.href = "/excel/templateDownload.do?templateName="+"bp";
+    }
+
+    //品牌数据导入
+    $scope.importExcel=function () {
+        // 向后台传递数据:
+        var formData = new FormData();
+        // 向formData中添加数据:
+        formData.append("file",file.files[0]);
+        excelService.importBrandExcel(formData).success(
+            function (response) {
+                if (response.flag){
+                    alert(response.message);
+                    $scope.reloadList();
+                }else {
+                    alert(response.message);
+                }
+            }
+        )
+
+    }
+
+
 	
 });
