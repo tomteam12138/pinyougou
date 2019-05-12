@@ -1,5 +1,5 @@
 //购物车控制层
-app.controller('cartController',function($scope,cartService){
+app.controller('cartController',function($scope,$http,cartService,$location){
 	//查询购物车列表
 	$scope.findCartList=function(){
 		cartService.findCartList().success(
@@ -86,5 +86,13 @@ app.controller('cartController',function($scope,cartService){
 			}				
 		);		
 	}
+
+
+
+    //添加商品到我的收藏
+    $scope.addToCollect=function(id){
+
+		location.href='http://localhost:9008/home-person-collect.html';
+    }
 	
 });

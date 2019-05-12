@@ -93,4 +93,10 @@ public class UserServiceImpl implements UserService {
     public Address findOneAddress(Long id) {
         return addressDao.selectByPrimaryKey(id);
     }
+
+    @Override
+    public User findUserAndRole(String username) {
+        return userDao.findUserAndRole(username);
+    }
+
 }

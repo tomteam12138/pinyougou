@@ -22,4 +22,6 @@ public interface UserService {
     void deleteAddress(Long id);
 
     Address findOneAddress(Long id);
+
+    User findUserAndRole(String username);
 }
