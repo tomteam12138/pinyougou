@@ -5,11 +5,6 @@ import entity.PageResult;
 
 import java.util.List;
 
-public interface SeckillOrderService {
-    List<SeckillOrder> findAll(String name);
-
-    PageResult search( Integer page, Integer rows, SeckillOrder seckillOrder);
-
 /**
  * Created by wang on 2019/5/9.
  */
@@ -19,4 +14,8 @@ public interface SeckillOrderService {
     SeckillOrder searchOrderFromRedisByUserId(String userId);
 
     void saveOrderFromRedisToDb(String userId,Long orderId,String transactionId);
+	
+	List<SeckillOrder> findAll(String name);
+
+    PageResult search( Integer page, Integer rows, SeckillOrder seckillOrder);
 }
