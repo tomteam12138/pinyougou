@@ -24,6 +24,7 @@
     <script type="text/javascript" src="../js/controller/baseController.js"></script>
     <script type="text/javascript" src="../js/service/specificationService.js"></script>
     <script type="text/javascript" src="../js/controller/specificationController.js"></script>
+	<script type="text/javascript" src="../js/service/excelService.js"></script>
     
 </head>
 
@@ -44,6 +45,15 @@
                                         <button type="button" class="btn btn-default" title="删除" ng-click="dele()" ><i class="fa fa-trash-o"></i> 删除</button>
                                         
                                         <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+										<button type="button" class="btn btn-default" title="模板下载" ng-click="specificationTemplateDownload()"><i
+												class="fa fa-check"></i>
+											模板下载
+										</button>
+										<button type="button" class="btn btn-default" title="规格数据导入" ng-click="importExcel()"><i
+												class="fa fa-check"></i>
+											导入数据
+										</button>
+										<input type="file" id="file" class="fa fa-check"/>
                                     </div>
                                 </div>
                             </div>

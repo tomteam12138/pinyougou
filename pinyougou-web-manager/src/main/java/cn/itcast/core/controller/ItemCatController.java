@@ -21,6 +21,7 @@ public class ItemCatController {
     private ItemCatService itemCatService;
     @RequestMapping("/findByParentId")
     public List<ItemCat> findByParentId(Long parentId){
+
         return itemCatService.findByParentId(parentId);
     }
 
