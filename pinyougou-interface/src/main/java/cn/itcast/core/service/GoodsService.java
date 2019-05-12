@@ -4,6 +4,11 @@ import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.pojo.item.Item;
 import entity.PageResult;
 import vo.GoodsVo;
+
+import java.util.Map;
+
+/**
+import vo.GoodsVo;
 import vo.SeckillGoodsVo;
 
 /**
@@ -11,7 +16,7 @@ import vo.SeckillGoodsVo;
  */
 public interface GoodsService {
 
-
+    void add(GoodsVo vo);
 
     PageResult search(Integer page, Integer rows, Goods goods);
 
@@ -19,12 +24,7 @@ public interface GoodsService {
 
     void delete(Long[] ids);
 
+    void update(GoodsVo vo);
 
     void updateStatus(Long[] ids, String status);
-
-    SeckillGoodsVo findById(Long id);
-
-    void addSeckill(SeckillGoodsVo vo);
-
-    Item findByitemId(Long id);
 }
