@@ -33,4 +33,18 @@ app.service('itemCatService',function($http){
 	this.findByParentId = function(parentId){
 		return $http.get("../itemCat/findByParentId.do?parentId="+parentId);
 	}
+    //分类查询
+    this.findApply1=function(name1){
+        return $http.get('../itemCat/findApply1.do?name1='+name1);
+    }
+
+    this.findApply2=function(name1,name2,name3){
+        return $http.get('../itemCat/findApply2.do?name1='+name1+'&name2='+name2+'&name3='+name3);
+    }
+
+    this.addApply1=function(name1){
+        return $http.get('../itemCat/addApply1.do?name1='+name1);
+    }
+
+
 });
