@@ -7,4 +7,24 @@ app.controller('indexController',function($scope,loginService){
 					}
 			);
 	}
+
+
+    //$scope.searchEntity={};//定义搜索对象
+    $scope.query=function(){
+        loginService.query().success(
+            function(response){
+                $scope.list=response;
+
+            }
+        );
+    }
+
+
+
+
+
+
+
+
+
 });

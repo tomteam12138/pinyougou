@@ -1,9 +1,6 @@
 package cn.itcast.core.service;
 
-import cn.itcast.core.dao.address.AddressDao;
 import cn.itcast.core.dao.user.UserDao;
-import cn.itcast.core.pojo.address.Address;
-import cn.itcast.core.pojo.address.AddressQuery;
 import cn.itcast.core.pojo.user.User;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.apache.commons.lang.RandomStringUtils;
@@ -15,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.jms.*;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,8 +28,6 @@ public class UserServiceImpl implements UserService {
     private RedisTemplate redisTemplate;
     @Autowired
     private UserDao userDao;
-    @Autowired
-    private AddressDao addressDao;
     @Override
     public void sendCode(String phone) {
         jmsTemplate.send(smsDestination, new MessageCreator() {
@@ -66,37 +60,4 @@ public class UserServiceImpl implements UserService {
             throw  new RuntimeException("验证码已失效,请重新请求");
         }
     }
-
-    @Override
-    public List<Address> selectAddress(String name) {
-        AddressQuery addressQuery = new AddressQuery();
-        addressQuery.createCriteria().andUserIdEqualTo(name);
-      return   addressDao.selectByExample(addressQuery);
-    }
-
-    @Override
-    public void addAddress(Address address) {
-        addressDao.insertSelective(address);
-    }
-
-    @Override
-    public void updateAddress(Address address) {
-        addressDao.updateByPrimaryKeySelective(address);
-    }
-
-    @Override
-    public void deleteAddress(Long id) {
-        addressDao.deleteByPrimaryKey(id);
-    }
-
-    @Override
-    public Address findOneAddress(Long id) {
-        return addressDao.selectByPrimaryKey(id);
-    }
-
-    @Override
-    public User findUserAndRole(String username) {
-        return userDao.findUserAndRole(username);
-    }
-
 }

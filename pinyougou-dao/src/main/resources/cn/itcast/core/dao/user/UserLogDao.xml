@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.core.dao.user.UserLogDao" >
+    <resultMap id="BaseResultMap" type="vo.UserLog" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="userId" property="userId" jdbcType="BIGINT" />
+        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <result column="loginTime" property="loginTime" jdbcType="TIMESTAMP" />
+        <result column="logoutTime" property="logOutTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <insert id="addUserLog" parameterType="vo.UserLog">
+        insert into tb_user_log (id,userId,userName,loginTime,logoutTime)
+         values (#{id,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{userName,jdbcType=VARCHAR},#{loginTime,jdbcType=TIMESTAMP},#{logOutTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="findAllDate" resultType="int">
+        select COUNT(userName) from tb_user_log;
+    </select>
+
+    <select id="findAll" resultType="list">
+        SELECT * from tb_user_log;
+    </select>
+
+    <select id="findToDay" resultType="vo.UserLog">
+        select * FROM tb_user_log where loginTime BETWEEN #{param1} and #{param2};
+    </select>
+</mapper>

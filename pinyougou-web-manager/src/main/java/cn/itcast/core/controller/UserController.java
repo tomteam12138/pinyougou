@@ -1,4 +1,5 @@
 package cn.itcast.core.controller;
+<<<<<<< Updated upstream
 
 
 import cn.itcast.core.pojo.role.Role;
@@ -13,10 +14,21 @@ import java.util.List;
 /**
  * Created by wang on 2019/5/8.
  */
+=======
+import cn.itcast.core.pojo.user.User;
+import cn.itcast.core.service.UserService;
+import com.alibaba.dubbo.config.annotation.Reference;
+import entity.PageResult;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+>>>>>>> Stashed changes
 @RestController
 @RequestMapping("/user")
 public class UserController {
     @Reference
+<<<<<<< Updated upstream
     private UserService2 userService2;
     @RequestMapping("/findAll")
     public PageResult findAll(Integer pageNum, Integer pageSize){
@@ -39,4 +51,18 @@ public class UserController {
 
         }
     }
+=======
+    private UserService userService;
+
+    @RequestMapping("/search")
+    public PageResult search(Integer page, Integer rows, @RequestBody(required = false) User user ) {
+        return  userService.search(page, rows, user);
+    }
+    @RequestMapping("/findTotal")
+    public Integer findTotal(){
+        return userService.findTotal();
+    }
+
+
+>>>>>>> Stashed changes
 }

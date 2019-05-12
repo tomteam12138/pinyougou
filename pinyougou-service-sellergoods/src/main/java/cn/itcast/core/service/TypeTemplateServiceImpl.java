@@ -39,6 +39,7 @@ public class TypeTemplateServiceImpl implements TypeTemplateService{
         List<TypeTemplate> typeTemplates = typeTemplateDao.selectByExample(null);
         for (TypeTemplate template : typeTemplates) {
             String brandIds = template.getBrandIds();
+            //JSON.parseArray 把brandIds字符串转换成map集合
             List<Map> maps = JSON.parseArray(brandIds, Map.class);
             redisTemplate.boundHashOps("brandList").put(template.getId().toString(),maps);
             redisTemplate.boundHashOps("specList").put(template.getId().toString(),findBySpecList(template.getId()));
