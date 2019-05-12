@@ -2,6 +2,7 @@
 <html>
 
 <head>
+<<<<<<< Updated upstream
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,20 @@
 	<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
 
+=======
+	<!-- 页面meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>商家审核</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+	<link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+>>>>>>> Stashed changes
 
 	<!-- 引入angular的js -->
 	<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
@@ -26,6 +41,7 @@
 	<script type="text/javascript" src="../js/controller/baseController.js"></script>
 	<script type="text/javascript" src="../js/controller/userController.js"></script>
 	<script type="text/javascript" src="../js/service/userService.js"></script>
+<<<<<<< Updated upstream
     
 </head>
 
@@ -98,13 +114,138 @@
 					<td>{{entity1.id}}</td>
 					<td>{{entity1.roleDesc}}</td>
 					<td><button ng-click="save(entity1.id)">修改</button>
+=======
+</head>
+
+<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="userController" >
+<!-- .box-body -->
+<div class="box box-primary">
+	<div class="box-header with-border">
+		<h3 class="box-title">用户统计</h3>
+	</div>
+
+	<div class="box-body">
+
+		<!-- 数据表格 -->
+		<div class="table-box">
+
+			<!--工具栏-->
+
+
+			<!--工具栏/-->
+
+			<!--数据列表-->
+			<table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+				<thead>
+				<tr>
+					<th class="" style="padding-right:0px">
+						<input id="selall" type="checkbox" class="icheckbox_square-blue">
+					</th>
+					<th class="sorting_asc">ID</th>
+					<th class="sorting">账号</th>
+					<th class="sorting">密码</th>
+					<th class="sorting">联系人电话</th>
+					<th class="sorting">创建时间</th>
+					<th class="sorting">修改时间</th>
+					<th class="sorting">状态</th>
+
+					<th class="text-center">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="entity in list">
+					<td><input  type="checkbox"></td>
+					<td>{{entity.id}}</td>
+					<td>{{entity.username}}</td>
+					<td>{{entity.password}}</td>
+					<td>{{entity.phone}}</td>
+					<td>{{entity.created}}</td>
+					<td>{{entity.updated}}</td>
+					<td>{{entity.status}}</td>
+					<td class="text-center">
+						<button type="button" ng-click="findOne(entity.userId)" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#userModal" >详情</button>
+>>>>>>> Stashed changes
 					</td>
 				</tr>
 				</tbody>
 			</table>
+<<<<<<< Updated upstream
            <!-- 选项卡结束 -->
 		</div>
 	  </div>
+=======
+			<!--数据列表/-->
+
+
+		</div>
+		<!-- 数据表格 /-->
+		<!-- 分页 -->
+		<tm-pagination conf="paginationConf"></tm-pagination>
+
+
+
+	</div>
+	<!-- /.box-body -->
+
+
+
+
+	<!-- 商家详情 -->
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" >
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">用户详情</h3>
+				</div>
+				<div class="modal-body">
+
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#home" data-toggle="tab">实名认证</a></li>
+
+
+					</ul>
+
+					<!-- 选项卡开始 -->
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane active in" id="home">
+							<br>
+							<table class="table table-bordered table-striped"  width="800px">
+								<tr>
+									<td>真实姓名</td>
+									<td>{{entity.name}}嘻哈比波猴</td>
+								</tr>
+								<tr>
+									<td>证件号码</td>
+									<td>{{entity.q}}1246</td>
+								</tr>
+								<tr>
+									<td>家庭住址</td>
+									<td>{{entity.w}}军事基地</td>
+								</tr>
+								<tr>
+									<td>会员等级</td>
+									<td>{{entity.e}}黑铁会员</td>
+								</tr>
+							</table>
+						</div>
+
+
+					</div>
+
+
+
+					</div>
+					<!-- 选项卡结束 -->
+
+
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+				</div>
+			</div>
+		</div>
+>>>>>>> Stashed changes
 	</div>
 </div>
 

@@ -73,7 +73,7 @@ app.controller('sellerController' ,function($scope,$controller   ,sellerService)
 			function(response){
 				$scope.list=response.rows;	
 				$scope.paginationConf.totalItems=response.total;//更新总记录数
-			}			
+			}
 		);
 	}
     
