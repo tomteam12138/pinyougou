@@ -292,4 +292,11 @@
       seller_id = #{sellerId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectGroupBySellerId" resultMap="groupMap">
+    SELECT  seller_id, COUNT(1)num FROM tb_order_item GROUP BY seller_id
+  </select>
+  <resultMap id="groupMap" type="vo.OrderGroup" >
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+  </resultMap>
 </mapper>
