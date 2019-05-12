@@ -10,9 +10,7 @@ import cn.itcast.core.pojo.good.Brand;
 import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.pojo.good.GoodsDesc;
 import cn.itcast.core.pojo.good.GoodsQuery;
-import cn.itcast.core.pojo.item.Item;
-import cn.itcast.core.pojo.item.ItemCat;
-import cn.itcast.core.pojo.item.ItemQuery;
+import cn.itcast.core.pojo.item.*;
 import com.alibaba.dubbo.config.annotation.Service;
 
 import com.alibaba.fastjson.JSON;
@@ -228,6 +226,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     }
 
+
+
+
     public void setAttribute(Item item,GoodsVo vo){
         item.setSellPoint(vo.getGoods().getCaption());
         String itemImages = vo.getGoodsDesc().getItemImages();
@@ -241,7 +242,7 @@ public class GoodsServiceImpl implements GoodsService {
         item.setUpdateTime(new Date());
         item.setGoodsId(vo.getGoods().getId());
         item.setSellerId(vo.getGoods().getSellerId());
-        ItemCat itemCat = itemCatDao.selectByPrimaryKey(vo.getGoods().getCategory3Id());
+        ItemCatNew itemCat = itemCatDao.selectByPrimaryKey(vo.getGoods().getCategory3Id());
         item.setCategory(itemCat.getName());
         Brand brand = brandDao.selectByPrimaryKey(vo.getGoods().getBrandId());
         item.setBrand(brand.getName());

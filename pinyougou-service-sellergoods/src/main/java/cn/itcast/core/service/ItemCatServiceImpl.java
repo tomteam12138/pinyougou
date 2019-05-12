@@ -3,6 +3,7 @@ package cn.itcast.core.service;
 import cn.itcast.core.dao.item.ItemCatDao;
 import cn.itcast.core.pojo.item.Item;
 import cn.itcast.core.pojo.item.ItemCat;
+import cn.itcast.core.pojo.item.ItemCatNew;
 import cn.itcast.core.pojo.item.ItemCatQuery;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,18 +37,19 @@ public class ItemCatServiceImpl implements ItemCatService {
 
     @Override
     public ItemCat findOne(Long id) {
-        return itemCatDao.selectByPrimaryKey(id);
+        return null;
     }
 
     @Override
     public void update(ItemCat itemCat) {
-        itemCatDao.updateByPrimaryKeySelective(itemCat);
+
     }
 
     @Override
     public void add(ItemCat itemCat) {
-        itemCatDao.insertSelective(itemCat);
+
     }
+
 
     @Override
     public List<ItemCat> findAll() {
@@ -55,6 +57,43 @@ public class ItemCatServiceImpl implements ItemCatService {
 
         return itemCats;
     }
+    @Override
+    public List<ItemCatNew> findApply1() {
+        return  itemCatDao.findByParentId(Long.parseLong("0"));
+    }
+
+    @Override
+    public ItemCatNew findApply2(String name2) {
+        System.out.println(name2);
+
+        ItemCatNew byName = itemCatDao.findByName(name2);
+
+        return   byName;
+    }
+
+    @Override
+    public void addApply1(String name1) {
+        ItemCatNew byName = new ItemCatNew();
+        byName.setParentId(0L);
+        byName.setItemStatus("0");
+        byName.setName(name1);
+         itemCatDao.addItem(byName);
+        System.out.println("添加成功");
+    }
+
+    @Override
+    public void addApply2(String name1, String name2) {
+        ItemCatNew byName = itemCatDao.findByName(name1);
+        ItemCatNew itemCatNew = new ItemCatNew();
+        itemCatNew.setParentId(byName.getId());
+        itemCatNew.setItemStatus("0");
+        itemCatNew.setName(name2);
+        itemCatDao.addItem(itemCatNew);
+        System.out.println("添加成功");
+
+    }
+
+
 
 
 }
