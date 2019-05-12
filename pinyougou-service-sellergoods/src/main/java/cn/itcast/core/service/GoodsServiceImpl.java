@@ -19,6 +19,7 @@ import cn.itcast.core.pojo.order.Order;
 import cn.itcast.core.pojo.order.OrderItem;
 import cn.itcast.core.pojo.order.OrderItemQuery;
 import cn.itcast.core.pojo.order.OrderQuery;
+import cn.itcast.core.pojo.item.*;
 import com.alibaba.dubbo.config.annotation.Service;
 
 import com.alibaba.fastjson.JSON;
@@ -231,6 +232,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     }
 
+
+
+
     public void setAttribute(Item item,GoodsVo vo){
         item.setSellPoint(vo.getGoods().getCaption());
         String itemImages = vo.getGoodsDesc().getItemImages();
@@ -244,9 +248,8 @@ public class GoodsServiceImpl implements GoodsService {
         item.setUpdateTime(new Date());
         item.setGoodsId(vo.getGoods().getId());
         item.setSellerId(vo.getGoods().getSellerId());
-        ItemCat itemCat = itemCatDao.selectByPrimaryKey(vo.getGoods().getCategory3Id());
+        ItemCatNew itemCat = itemCatDao.selectByPrimaryKey(vo.getGoods().getCategory3Id());
         item.setCategory(itemCat.getName());
 
     }
-
 }

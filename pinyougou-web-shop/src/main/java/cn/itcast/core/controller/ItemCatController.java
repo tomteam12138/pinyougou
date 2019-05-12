@@ -1,6 +1,7 @@
 package cn.itcast.core.controller;
 
 import cn.itcast.core.pojo.item.ItemCat;
+import cn.itcast.core.pojo.item.ItemCatNew;
 import cn.itcast.core.service.ItemCatService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.Result;
@@ -52,4 +53,47 @@ public class ItemCatController {
     public List<ItemCat> findAll(){
         return itemCatService.findAll();
     }
+
+    @RequestMapping("/findApply1")
+    public Result findApply1(String name1){
+        ItemCatNew apply2 = itemCatService.findApply2(name1);
+            if (apply2 != null){
+                return new Result(false,"一级目录已经存在");
+            }else {
+                return new Result(true,"可以添加一级目录");
+            }
+
+    }
+    @RequestMapping("/findApply2")
+    public Result findApply2(String name1,String name2,String name3){
+        ItemCatNew apply2 = itemCatService.findApply2(name2);
+        if(apply2==null){
+            addApply2(name1,name2);
+            if(name3!=null){
+                if(itemCatService.findApply2(name3)==null){
+                    addApply2(name2,name3);
+                    return new Result(true,"添加三级成功");
+                }
+            }
+            return new Result(true,"添加二级成功");
+        }else {
+            ItemCatNew apply3 = itemCatService.findApply2(name3);
+            if(apply3 != null){
+                return new Result(false,"该分类已存在");
+            }else {
+                itemCatService.addApply2(name2,name3);
+                return new Result(true,"添加三级成功");
+            }
+        }
+
+    }
+    @RequestMapping("/addApply1")
+    public void addApply1(String name1){
+       itemCatService.addApply1(name1);
+    }
+
+    public void addApply2(String name1,String name2){
+        itemCatService.addApply2(name1,name2);
+    }
+
 }

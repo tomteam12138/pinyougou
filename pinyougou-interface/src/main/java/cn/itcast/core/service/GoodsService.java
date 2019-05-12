@@ -1,7 +1,13 @@
 package cn.itcast.core.service;
 
 import cn.itcast.core.pojo.good.Goods;
+import cn.itcast.core.pojo.item.ItemCatNew;
 import entity.PageResult;
+import vo.GoodsVo;
+
+import java.util.List;
+
+/**
 import vo.GoodsVo;
 
 import java.util.Map;
@@ -22,4 +28,6 @@ public interface GoodsService {
     void update(GoodsVo vo);
 
     void updateStatus(Long[] ids, String status);
+
+
 }
