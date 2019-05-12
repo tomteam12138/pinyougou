@@ -4,5 +4,11 @@ app.service('loginService',function($http){
 	this.showName=function(){
 		return $http.get('../login/name.do');
 	}
-	
+
+
+    //搜索
+    this.query=function(){
+        return $http.post('../query/orderquert.do');
+    }
+
 });

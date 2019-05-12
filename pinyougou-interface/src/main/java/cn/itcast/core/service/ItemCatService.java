@@ -3,6 +3,8 @@ package cn.itcast.core.service;
 import cn.itcast.core.pojo.item.Item;
 import cn.itcast.core.pojo.item.ItemCat;
 import cn.itcast.core.pojo.item.ItemCatNew;
+import entity.PageResult;
+import cn.itcast.core.pojo.item.ItemCatNew;
 
 import java.util.List;
 import java.util.Map;
@@ -11,12 +13,11 @@ import java.util.Map;
  * Created by wang on 2019/4/12.
  */
 public interface ItemCatService {
-    List<ItemCat> findByParentId(Long parentId);
+    List<ItemCatNew> findByParentId(Long parentId);
 
+    void updateStatus(Long[] ids, String status);
 
-    ItemCat findOne(Long id);
-
-    void update(ItemCat itemCat);
+    PageResult search(Integer page, Integer rows, ItemCatNew itemCatNew);
 
     void add(ItemCat itemCat);
 
@@ -31,4 +32,5 @@ public interface ItemCatService {
     void addApply2(String name1, String name2);
 
 
+    ItemCatNew findOne(Long id);
 }

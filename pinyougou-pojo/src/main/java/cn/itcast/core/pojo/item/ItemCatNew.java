@@ -14,12 +14,12 @@ public class ItemCatNew implements Serializable {
     public ItemCatNew() {
     }
 
-    public ItemCatNew(Long id, Long parentId, String name, String isDelete, String item_status, Long typeId) {
+    public ItemCatNew(Long id, Long parentId, String name, String isDelete, String itemStatus, Long typeId) {
         this.id = id;
         this.parentId = parentId;
         this.name = name;
         this.isDelete = isDelete;
-        this.itemStatus = item_status;
+        this.itemStatus = itemStatus;
         this.typeId = typeId;
     }
 

@@ -24,6 +24,7 @@ public class OrderController {
     @RequestMapping("/add")
     public Result add(@RequestBody Order order){
         try {
+            //拿到名字
             String name = SecurityContextHolder.getContext().getAuthentication().getName();
             order.setUserId(name);
             orderService.add(order);
