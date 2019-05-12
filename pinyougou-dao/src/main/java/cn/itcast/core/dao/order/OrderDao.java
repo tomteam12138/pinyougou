@@ -19,6 +19,7 @@ public interface OrderDao {
     List<Order> selectByExample(OrderQuery example);
 
     Order selectByPrimaryKey(Long orderId);
+    List<Order> selectGroupBySellerId();
 
     int updateByExampleSelective(@Param("record") Order record, @Param("example") OrderQuery example);
 

@@ -8,6 +8,11 @@ import vo.GoodsVo;
 import java.util.List;
 
 /**
+import vo.GoodsVo;
+
+import java.util.Map;
+
+/**
  * Created by wang on 2019/4/13.
  */
 public interface GoodsService {

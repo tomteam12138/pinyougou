@@ -4,6 +4,7 @@ import cn.itcast.core.pojo.specification.Specification;
 import entity.PageResult;
 import vo.SpecificationVo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,4 +23,7 @@ public interface SpecificationService {
     void delete(Long[] ids);
 
     List<Map> selectOptionList();
+
+    void saveBeans(ArrayList<Specification> specifications);
+
 }
