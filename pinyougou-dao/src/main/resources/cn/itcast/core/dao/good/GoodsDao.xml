@@ -331,8 +331,8 @@
         default_item_id = #{defaultItemId,jdbcType=BIGINT},
       </if>
       <if test="auditStatus != null" >
-        audit_status = #{auditStatus,jdbcType=VARCHAR},
-      </if>
+      audit_status = #{auditStatus,jdbcType=VARCHAR},
+    </if>
       <if test="isMarketable != null" >
         is_marketable = #{isMarketable,jdbcType=VARCHAR},
       </if>

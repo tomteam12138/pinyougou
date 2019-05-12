@@ -111,6 +111,9 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectGroupBySellerId" resultMap="BaseResultMap">
+    SELECT * from  tb_order GROUP BY seller_id
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     order_id,payment,payment_type,post_fee,status,create_time,update_time,payment_time,consign_time,end_time,close_time,shipping_name,shipping_code,user_id,buyer_message,buyer_nick,buyer_rate,receiver_area_name,receiver_mobile,receiver_zip_code,receiver,expire,invoice_type,source_type,seller_id

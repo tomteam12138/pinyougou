@@ -2,6 +2,7 @@ package cn.itcast.core.controller;
 
 import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.pojo.item.ItemCat;
+import cn.itcast.core.pojo.item.ItemCatNew;
 import cn.itcast.core.service.GoodsService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.PageResult;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vo.GoodsVo;
 
+import java.util.List;
+
 /**
  * Created by wang on 2019/4/13.
+ * sss
  */
 @RestController
 @RequestMapping("/goods")
@@ -64,4 +68,5 @@ public class GoodsController {
             return new Result(false,"失败");
         }
     }
+
 }
