@@ -9,16 +9,15 @@ import com.github.pagehelper.PageHelper;
 import entity.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by wang on 2019/4/12.
  */
 @Service
-@Transactional
+//@Transactional
 public class SellerServiceImpl implements SellerService {
     @Autowired
     private SellerDao sellerDao;
@@ -56,4 +55,5 @@ public class SellerServiceImpl implements SellerService {
     public void updateStatus(Seller seller) {
         sellerDao.updateByPrimaryKeySelective(seller);
     }
+
 }

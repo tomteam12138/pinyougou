@@ -55,6 +55,7 @@ public class TypeTemplateServiceImpl implements TypeTemplateService{
 
     @Override
     public void add(TypeTemplate typeTemplate) {
+              typeTemplate.setStatus("0");
         typeTemplateDao.insertSelective(typeTemplate);
     }
 

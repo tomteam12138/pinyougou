@@ -5,6 +5,8 @@ import cn.itcast.core.dao.good.GoodsDao;
 import cn.itcast.core.dao.good.GoodsDescDao;
 import cn.itcast.core.dao.item.ItemCatDao;
 import cn.itcast.core.dao.item.ItemDao;
+import cn.itcast.core.dao.order.OrderDao;
+import cn.itcast.core.dao.order.OrderItemDao;
 import cn.itcast.core.dao.seller.SellerDao;
 import cn.itcast.core.pojo.good.Brand;
 import cn.itcast.core.pojo.good.Goods;
@@ -13,6 +15,10 @@ import cn.itcast.core.pojo.good.GoodsQuery;
 import cn.itcast.core.pojo.item.Item;
 import cn.itcast.core.pojo.item.ItemCat;
 import cn.itcast.core.pojo.item.ItemQuery;
+import cn.itcast.core.pojo.order.Order;
+import cn.itcast.core.pojo.order.OrderItem;
+import cn.itcast.core.pojo.order.OrderItemQuery;
+import cn.itcast.core.pojo.order.OrderQuery;
 import com.alibaba.dubbo.config.annotation.Service;
 
 import com.alibaba.fastjson.JSON;
@@ -35,10 +41,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by wang on 2019/4/13.
@@ -247,4 +250,5 @@ public class GoodsServiceImpl implements GoodsService {
         item.setBrand(brand.getName());
         item.setSeller(sellerDao.selectByPrimaryKey(vo.getGoods().getSellerId()).getNickName());
     }
+
 }
