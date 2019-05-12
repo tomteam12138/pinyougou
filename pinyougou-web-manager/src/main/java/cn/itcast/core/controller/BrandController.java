@@ -2,6 +2,7 @@ package cn.itcast.core.controller;
 
 import cn.itcast.core.pojo.good.Brand;
 import cn.itcast.core.service.BrandService;
+import cn.itcast.core.service.OrderService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.PageResult;
 import entity.Result;
@@ -70,10 +71,15 @@ public class BrandController {
             return new Result(false,"失败");
         }
     }
+
+    @Reference
+    private OrderService orderService;
     //关键字搜索功能带分页
     @RequestMapping("/search")
     public PageResult search(Integer pageNum,Integer pageSize,@RequestBody(required = false)Brand brand) {
-        return  brandService.search(pageNum, pageSize, brand);
+        System.out.println();
+        PageResult result = brandService.search(pageNum, pageSize, brand);
+        return result;
     }
     @RequestMapping("/selectOptionList")
     public List<Map> selectOptionList(){

@@ -34,12 +34,16 @@
 	<!-- 引入angular的js -->
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
 	<script type="text/javascript" src="../js/base.js"></script>
+    <!--<script type="text/javascript" src="../js/controller/baseController.js"></script>-->
     <script type="text/javascript" src="../js/controller/indexController.js"></script>
     <script type="text/javascript" src="../js/service/loginService.js"></script>
- 
+    <script type="text/javascript" src="../js/service/orderService.js"></script>
+    <!--<script type="text/javascript" src="../js/controller/orderController.js"></script>-->
+
+
 </head>
 
-<body class="hold-transition skin-green sidebar-mini" ng-app="pinyougou" ng-controller="indexController" ng-init="showName()">
+<body class="hold-transition skin-green sidebar-mini" ng-app="pinyougou" ng-controller="indexController" ng-init="showName();findOrderTotal()" >
 
     <div class="wrapper">
 

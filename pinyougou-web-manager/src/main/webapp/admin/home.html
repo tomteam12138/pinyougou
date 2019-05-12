@@ -29,9 +29,16 @@
 
 
 
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/controller/indexController.js"></script>
+    <script type="text/javascript" src="../js/service/loginService.js"></script>
+    <script type="text/javascript" src="../js/service/orderService.js"></script>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" ng-app="pinyougou" ng-controller="userController" ng-init="findTotal()">
+<body class="hold-transition skin-blue sidebar-mini"  ng-app="pinyougou" ng-controller="indexController"  ng-init="findOrderTotal()">
 
 <!-- 内容区域 -->
 
@@ -58,6 +65,13 @@
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>150</h3>
+                <!-- 统计数值 -->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>{{total}}</h3>
 
                     <p>新订单</p>
                 </div>
@@ -74,6 +88,20 @@
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <p>订单总数</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+                            <a href="all-order-manage-list.html" class="small-box-footer">详细 <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
                     <p>转化率</p>
                 </div>

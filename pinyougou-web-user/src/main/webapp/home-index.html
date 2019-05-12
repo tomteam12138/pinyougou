@@ -16,6 +16,11 @@
     <script type="text/javascript" src="js/service/loginService.js"></script>
     <script type="text/javascript" src="js/controller/indexController.js"></script>
 
+	<script type="text/javascript" src="js/base.js"></script>
+	<script type="text/javascript" src="js/service/loginService.js"></script>
+	<script type="text/javascript" src="js/controller/indexController.js"></script>
+    <script type="text/javascript" src="js/service/seckillService.js"></script>
+
 </head>
 
 <body ng-app="pinyougou" ng-controller="indexController" ng-init="showName();query()">
@@ -215,6 +220,64 @@
                                 <div class="sui-pagination pagination-large top-pages">
                                     <ul>
                                         <li class="prev disabled"><a href="#">上一页</a></li>
+                    <div class="person-info">
+                        <div class="person-photo"><img src="img/_/photo.png" alt=""></div>
+                        <div class="person-account">
+                            <span class="name">{{loginName}}</span>
+                            <span class="safe"><a href="logout/cas">退出登录 </a></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="list-items">
+                        <dl>
+							<dt><i>·</i> 订单中心</dt>
+							<dd ><a href="home-index.html"  class="list-active" >我的订单</a></dd>
+							<dd><a href="home-order-pay.html" >待付款</a></dd>
+							<dd><a href="home-order-send.html"  >待发货</a></dd>
+							<dd><a href="home-order-receive.html" >待收货</a></dd>
+							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+                            <dd ><a href="seckill.html"  class="list-active" >秒杀订单</a></dd>
+						</dl>
+						<dl>
+							<dt><i>·</i> 我的中心</dt>
+							<dd><a href="home-person-collect.html">我的收藏</a></dd>
+							<dd><a href="home-person-footmark.html">我的足迹</a></dd>
+						</dl>
+						<dl>
+							<dt><i>·</i> 物流消息</dt>
+						</dl>
+						<dl>
+							<dt><i>·</i> 设置</dt>
+							<dd><a href="home-setting-info.html">个人信息</a></dd>
+							<dd><a href="home-setting-address.html"  >地址管理</a></dd>
+							<dd><a href="home-setting-safe.html" >安全管理</a></dd>
+						</dl>
+                    </div>
+                </div>
+                <!--右侧主内容-->
+                <div class="yui3-u-5-6 order-pay">
+                    <div class="body">
+                        <div class="table-title">
+                            <table class="sui-table  order-table">
+                                <tr>
+                                    <thead>
+                                        <th width="35%">宝贝</th>
+                                        <th width="5%">单价</th>
+                                        <th width="5%">数量</th>
+                                        <th width="8%">商品操作</th>
+                                        <th width="10%">实付款</th>
+                                        <th width="10%">交易状态</th>
+                                        <th width="10%">交易操作</th>
+                                    </thead>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="order-detail">
+                            <div class="orders">
+                                <div class="choose-order">
+                                    <div class="sui-pagination pagination-large top-pages">
+                                        <ul>
+                                            <li class="prev disabled"><a href="#">上一页</a></li>
 
                                         <li class="next"><a href="#">下一页</a></li>
                                     </ul>
