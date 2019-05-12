@@ -1,5 +1,7 @@
 package cn.itcast.core.pojo.user;
 
+import cn.itcast.core.pojo.role.Role;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -107,6 +109,8 @@ public class User implements Serializable {
      * 最后登录时间
      */
     private Date lastLoginTime;
+
+    private Role role;
 
     private static final long serialVersionUID = 1L;
 
@@ -284,6 +288,14 @@ public class User implements Serializable {
 
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override

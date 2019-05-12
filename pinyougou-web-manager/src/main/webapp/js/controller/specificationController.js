@@ -1,5 +1,5 @@
  //控制层 
-app.controller('specificationController' ,function($scope,$controller,specificationService){
+app.controller('specificationController' ,function($scope,$controller,specificationService,excelService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -86,5 +86,29 @@ app.controller('specificationController' ,function($scope,$controller,specificat
 	$scope.deleteTableRow = function(index){
 		$scope.entity.specificationOptionList.splice(index,1);
 	}
-    
+
+    $scope.specificationTemplateDownload = function () {
+        location.href = "/excel/templateDownload.do?templateName="+"sp";
+    }
+
+    //规格数据导入
+    $scope.importExcel=function () {
+        // 向后台传递数据:
+        var formData = new FormData();
+
+        // 向formData中添加数据:
+        formData.append("file",file.files[0]);
+
+        excelService.importSpecificationExcel(formData).success(
+            function (response) {
+                if (response.flag){
+                    alert(response.message);
+                    $scope.reloadList();
+                }else {
+                    alert(response.message);
+                }
+            }
+        )
+
+    }
 });	

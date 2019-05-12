@@ -14,4 +14,5 @@ public interface SellerService {
     PageResult search(Integer page, Integer rows, Seller seller);
 
     void updateStatus(Seller seller);
+
 }
